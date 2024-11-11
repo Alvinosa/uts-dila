@@ -1,37 +1,41 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+import Beranda from './Beranda';  
+import Pemesanan from './pemesanan'; 
+import Profil from './profil'; 
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+const Tab = createBottomTabNavigator();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </ThemeProvider>
+    <NavigationContainer>
+      <Tab.Navigator
+        initialRouteName="Beranda"
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+
+            if (route.name === 'Beranda') {
+              iconName = focused ? 'home' : 'home-outline';
+            } else if (route.name === 'Pemesanan') {
+              iconName = focused ? 'list' : 'list-outline';
+            } else if (route.name === 'Profil') {
+              iconName = focused ? 'person' : 'person-outline';
+            }
+
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: '#FFD700', 
+          tabBarInactiveTintColor: '#1E90FF', 
+        })}
+      >
+        <Tab.Screen name="Beranda" component={Beranda} />
+        <Tab.Screen name="Pemesanan" component={Pemesanan} />
+        <Tab.Screen name="Profil" component={Profil} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
