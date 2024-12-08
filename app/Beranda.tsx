@@ -10,7 +10,6 @@ export default function Beranda() {
         <Text style={styles.subText}>Temukan layanan makeup terbaik di sini!</Text>
       </View>
 
-      
       <View style={styles.cardsContainer}>
         <View style={styles.card}>
           <Image source={require('../assets/images/pengantin.jpg')} style={styles.cardImage} />
@@ -24,7 +23,6 @@ export default function Beranda() {
         </View>
       </View>
 
-      
       <TouchableOpacity style={styles.orderButton}>
         <Text style={styles.orderButtonText}>Pesan Sekarang</Text>
       </TouchableOpacity>
@@ -40,18 +38,22 @@ const styles = StyleSheet.create({
   header: {
     padding: 20,
     alignItems: 'center',
-    backgroundColor: 'linear-gradient(to right, #1E90FF, #87CEFA)', 
+    backgroundColor: 'linear-gradient(135deg, #1E90FF, #87CEFA)', // Soft gradient biru
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },
   welcomeText: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#FFFFFF',
+    color: '#1E90FF',
+    textAlign: 'center',
+    textShadowColor: '#87CEFA',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
   },
   subText: {
     fontSize: 16,
-    color: '#D1E7FF',
+    color: '#1E88E5',
     marginTop: 5,
   },
   cardsContainer: {
@@ -85,7 +87,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   orderButton: {
-    backgroundColor: '#1E90FF',
+    backgroundColor: '#64B5F6',
     padding: 15,
     borderRadius: 30,
     marginHorizontal: 20,
