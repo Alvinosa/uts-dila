@@ -4,22 +4,22 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 export default function Profil() {
   return (
     <View style={styles.container}>
-      {/* Foto dan Nama Profil */}
+      
       <View style={styles.profileContainer}>
         <Image
-          source={{ uri: 'https://placeimg.com/100/100/people' }} // Ganti dengan URL foto pengguna atau foto default
+          source={require('../assets/images/rofiani.jpg')} 
           style={styles.profileImage}
         />
-        <Text style={styles.profileName}>Nama Pengguna</Text>
-        <Text style={styles.profileEmail}>emailpengguna@example.com</Text>
+        <Text style={styles.profileName}>Rofiani</Text>
+        <Text style={styles.profileEmail}>rofiani@gmail.com</Text>
       </View>
 
-      {/* Tombol Edit Profil */}
+      
       <TouchableOpacity style={styles.editButton}>
         <Text style={styles.editButtonText}>Edit Profil</Text>
       </TouchableOpacity>
 
-      {/* Opsi Lainnya */}
+      
       <View style={styles.optionsContainer}>
         <TouchableOpacity style={styles.optionButton}>
           <Text style={styles.optionText}>Riwayat Pemesanan</Text>
@@ -41,7 +41,7 @@ export default function Profil() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#E3F2FD', 
     paddingHorizontal: 20,
     paddingVertical: 30,
   },
@@ -50,28 +50,38 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   profileImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    marginBottom: 10,
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    borderWidth: 3,
+    borderColor: '#2196F3', 
+    marginBottom: 15,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 5 },
+    elevation: 10,
   },
   profileName: {
-    fontSize: 22,
+    fontSize: 26,
     fontWeight: 'bold',
-    color: '#1E90FF',
+    color: '#0D47A1', 
   },
   profileEmail: {
     fontSize: 16,
-    color: '#333',
+    color: '#1E88E5', 
     marginTop: 5,
   },
   editButton: {
-    backgroundColor: '#FFD700',
-    padding: 10,
+    backgroundColor: '#64B5F6', 
+    padding: 12,
     borderRadius: 20,
     alignItems: 'center',
     marginTop: 15,
     marginBottom: 30,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 5 },
+    elevation: 5,
   },
   editButtonText: {
     fontSize: 16,
@@ -82,11 +92,13 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   optionButton: {
-    backgroundColor: '#F8F8F8',
+    backgroundColor: '#FFFFFF', 
     padding: 15,
-    borderRadius: 10,
+    borderRadius: 15,
     marginBottom: 15,
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#64B5F6',
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 5 },
@@ -94,6 +106,7 @@ const styles = StyleSheet.create({
   },
   optionText: {
     fontSize: 16,
-    color: '#1E90FF',
+    color: '#0D47A1', 
+    fontWeight: 'bold',
   },
 });
