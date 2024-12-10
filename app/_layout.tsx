@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import Beranda from './Beranda';
 import Pemesanan from './pemesanan';
 import Profil from './profil';
+import Portofolio from './portofolio';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,19 +20,21 @@ export default function RootLayout() {
             let iconName;
 
             if (route.name === 'Beranda') {
-              iconName = focused ? 'happy' : 'happy-outline'; // Ikon lucu untuk "Beranda"
+              iconName = focused ? 'happy' : 'happy-outline';
             } else if (route.name === 'Pemesanan') {
-              iconName = focused ? 'cart' : 'cart-outline'; // Ikon keranjang untuk "Pemesanan"
+              iconName = focused ? 'cart' : 'cart-outline'; 
             } else if (route.name === 'Profil') {
-              iconName = focused ? 'heart' : 'heart-outline'; // Ikon hati untuk "Profil"
+              iconName = focused ? 'heart' : 'heart-outline'; 
+            } else if (route.name === 'Portofolio') {
+              iconName = focused ? 'images' : 'images-outline'; 
             }
 
             return <Ionicons name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: '#1E88E5', // Warna biru terang saat aktif
-          tabBarInactiveTintColor: '#90CAF9', // Warna biru muda saat tidak aktif
+          tabBarActiveTintColor: '#1E88E5',
+          tabBarInactiveTintColor: '#90CAF9',
           tabBarStyle: {
-            backgroundColor: '#E3F2FD', // Warna latar biru muda untuk tab bar
+            backgroundColor: '#E3F2FD',
             borderTopWidth: 0,
             shadowColor: '#000',
             shadowOpacity: 0.1,
@@ -39,9 +42,9 @@ export default function RootLayout() {
             elevation: 5,
           },
           headerStyle: {
-            backgroundColor: '#1E88E5', // Warna header biru terang
+            backgroundColor: '#1E88E5',
           },
-          headerTintColor: '#FFFFFF', // Warna teks header putih
+          headerTintColor: '#FFFFFF',
           headerTitleStyle: {
             fontWeight: 'bold',
           },
@@ -50,6 +53,7 @@ export default function RootLayout() {
         <Tab.Screen name="Beranda" component={Beranda} />
         <Tab.Screen name="Pemesanan" component={Pemesanan} />
         <Tab.Screen name="Profil" component={Profil} />
+        <Tab.Screen name="Portofolio" component={Portofolio} />
       </Tab.Navigator>
     </NavigationContainer>
   );
